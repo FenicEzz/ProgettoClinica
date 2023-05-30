@@ -1,0 +1,72 @@
+﻿@model DataLayer.Entities.Recovery
+
+@{
+    ViewData["Title"] = "Dettagli";
+}
+
+<h1>Dettaglio ricovero di @Model.Pet.Name</h1>
+<hr />
+
+<div class="mt-3">
+    <img src="@Model.UrlPetPicture" class="rounded float-end" alt="Pet Photo">
+
+    <dl class="row">
+        <dt class="col-sm-2">
+            @Html.DisplayNameFor(model => model.RecoveryDate)
+        </dt>
+        <dd class="col-sm-10">
+            @Html.DisplayFor(model => model.RecoveryDate)
+        </dd>
+        <dt class="col-sm-2">
+            @Html.DisplayNameFor(model => model.Pet.Race)
+        </dt>
+        <dd class="col-sm-10">
+            @Html.DisplayFor(model => model.Pet.Race)
+        </dd>
+        <dt class="col-sm-2">
+            @Html.DisplayNameFor(model => model.Pet.FurColor)
+        </dt>
+        <dd class="col-sm-10">
+            @Html.DisplayFor(model => model.Pet.FurColor)
+        </dd>
+        <dt class="col-sm-2">
+            @Html.DisplayNameFor(model => model.Pet.Birthdate)
+        </dt>
+        <dd class="col-sm-10">
+            @Html.DisplayFor(model => model.Pet.Birthdate)
+        </dd>
+        <dt class="col-sm-2">
+            @Html.DisplayNameFor(model => model.Pet.HasMicrochip)
+        </dt>
+        <dd class="col-sm-10">
+            @Html.DisplayFor(model => model.Pet.HasMicrochip)
+        </dd>
+
+        @if (Model.Pet.HasMicrochip)
+        {
+            <dt class="col-sm-2">
+                @Html.DisplayNameFor(model => model.Pet.MicrochipNumber)
+            </dt>
+            <dd class="col-sm-10">
+                @Html.DisplayFor(model => model.Pet.MicrochipNumber)
+            </dd>
+            <dt class="col-sm-2">
+                @Html.DisplayNameFor(model => model.Pet.CustomerFirstname)
+            </dt>
+            <dd class="col-sm-10">
+                @Html.DisplayFor(model => model.Pet.CustomerFirstname)
+            </dd>
+            <dt class="col-sm-2">
+                @Html.DisplayNameFor(model => model.Pet.CustomerLastname)
+            </dt>
+            <dd class="col-sm-10">
+                @Html.DisplayFor(model => model.Pet.CustomerLastname)
+            </dd>
+        }
+
+    </dl>
+</div>
+
+<div>
+    <a asp-action="Index" class="btn btn-primary">Back to List</a>
+</div>

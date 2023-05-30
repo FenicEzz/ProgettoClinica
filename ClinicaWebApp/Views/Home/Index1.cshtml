@@ -1,0 +1,102 @@
+﻿@model IEnumerable<DataLayer.Entities.Pet>
+
+<div class="my-4">
+    <label for="ChipNumber">
+        Cerca numero Microchip: <input name="ChipNumber" type="number" id="chip" value="" />
+    </label>
+
+    <button class="btn btn-outline-success" onclick="cerca()">Cerca</button>
+</div>
+
+
+<table class="table" style="display: none">
+    <thead>
+        <tr>
+            <th>
+                @Html.DisplayNameFor(model => model.Id)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.RegisterDate)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.Name)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.Race)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.FurColor)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.Birthdate)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.HasMicrochip)
+            </th>
+        </tr>
+    </thead>
+
+    <tbody>
+        <tr>
+            <td>
+            </td>
+            <td>
+            </td>
+            <td>
+            </td>
+            <td>
+            </td>
+            <td>
+            </td>
+            <td>
+            </td>
+            <td>
+            </td>
+            <td>
+            </td>
+        </tr>
+    </tbody>
+
+</table>
+
+
+@section Scripts {
+
+    <script>
+
+        let td = document.getElementsByTagName("td");
+
+        function cerca() {
+
+            var xhttp = new XMLHttpRequest();
+
+            xhttp.onload = () => {
+
+                var res = JSON.parse(xhttp.responseText)
+
+                var chipNum = $("#chip").val();
+
+                for (let i = 0; i < res.length; i++) {
+
+                    if (res[i].microchipNumber == chipNum) {
+
+                        td[0].innerHTML = res[i].id;
+                        td[1].innerHTML = res[i].registerDate;
+                        td[2].innerHTML = res[i].name;
+                        td[3].innerHTML = res[i].race;
+                        td[4].innerHTML = res[i].furColor;
+                        td[5].innerHTML = res[i].birthdate;
+                        td[6].innerHTML = res[i].hasMicrochip;
+                    }
+                    else {
+                        return alert("Non esiste un animale con questo numero di microchip");
+                    }
+                }
+            }
+
+            xhttp.open("get", "https://localhost:7124/api/recs/allpets")
+            xhttp.send();
+        }
+
+    </script>
+}

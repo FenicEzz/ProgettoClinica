@@ -1,0 +1,50 @@
+﻿@model IEnumerable<DataLayer.Entities.Provider>
+
+@{
+    ViewData["Title"] = "Index";
+}
+
+<h1>Lista Fornitori</h1>
+
+<p>
+    <a class="btn btn-primary" asp-action="Create">Aggiungi Fornitore</a>
+</p>
+<table class="table">
+    <thead>
+        <tr>
+            <th>
+                @Html.DisplayNameFor(model => model.Name)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.PhoneNumber)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.Address)
+            </th>
+            <th>
+                Azioni
+            </th>
+        </tr>
+    </thead>
+    <tbody>
+        @foreach (var item in Model)
+        {
+            <tr>
+                <td>
+                    @Html.DisplayFor(modelItem => item.Name)
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.PhoneNumber)
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.Address)
+                </td>
+                <td>
+                    <a class="btn btn-success" asp-action="AddProduct" asp-route-id="@item.Id">Aggiungi Prodotto</a> |
+                    <a class="btn btn-info" asp-action="ProductsList" asp-route-id="@item.Id">Lista Prodotti</a> |
+                    <a class="btn btn-danger" asp-action="Delete" asp-route-id="@item.Id">Rimuovi</a>
+                </td>
+            </tr>
+        }
+    </tbody>
+</table>

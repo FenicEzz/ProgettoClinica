@@ -1,0 +1,65 @@
+﻿
+Una clinica veterinaria deve poter informatizzare la propria attività per gestire visite dei
+propri pazienti a quattro zampe.
+
+--------------------------------------------------------------------------------------------------------------------
+
+Ogni [animale] è anagrafato una sola volta ed identificato con una [data di registrazione], il
+[nome], la [tipologia (cane, gatto…)], [colore del mantello], [data di nascita], se possiede [microchip]
+ed eventualmente il [numero], il [nome] ed il [cognome] del proprietario.
+
+Per ogni animale sottoposto a [visita], il veterinario deve poter indicarne la [data], [l’esame
+obiettivo] e la [descrizione della cura] prescritta.
+
+In fase di [accettazione], il veterinario, prima ancora di poter compilare la visita, potrà
+visualizzare l’[anamnesi dell’animale] per mezzo di un pulsante che riproporrà la [cronistoria
+delle visite] già effettuate presso la clinica. Tale elenco deve riportare il dettaglio delle visite
+in [ordine cronologico inverso] (l’ultima visita è la prima dell’elenco).
+
+La clinica prevede anche un ricovero per gli animali smarriti per conto del canile municipale della città.
+
+Tutti i [ricoveri] vengono memorizzati con gli [stessi dati richiesti per la memorizzazione
+anagrafica], ad [eccezione del nominativo del proprietario e della data di nascita] che
+eventualmente può essere presunta, oltre alla [data di inizio del ricovero] ed una [foto
+dell’animale].
+
+I ricoveri, vengono mensilmente rimborsati dal Comune della città per mezzo di una
+contabilizzazione che può essere estratta in modo asincrono da una pagina della
+applicazione, accessibile solamente ai veterinari, che dovrà restituire i ricoveri attivi,
+comprendenti il dettaglio dell’ospite e l’inizio del ricovero.
+
+Infine, una pagina ad accesso libero, potrà consentire, ad un eventuale padrone che ha
+smarrito il suo amico a quattro zampe, inserendo il numero del microchip, di sapere se il
+proprio animale è ricoverato presso la sede veterinaria. Tale attività, che deve
+eventualmente informare l’utente se l’animale è ricoverato presso la clinica,
+visualizzandone anche la foto, deve essere invocata in modo asincrono.
+
+--------------------------------------------------------------------------------------------------------------------
+
+La clinica, possiede anche una piccola farmacia e desidera che il software possa gestire la
+disponibilità dei prodotti.
+
+▪ Ciascun [prodotto] è caratterizzato univocamente dal [nome] del prodotto stesso e dalla
+informazione relativa alla [ditta fornitrice] del prodotto. I prodotti presenti nella
+farmacia possono essere [medicinali] oppure prodotti di tipo [alimentare per animali].
+Per ciascun prodotto è comunque noto [l’elenco degli usi possibili] del prodotto stesso
+(ad esempio otiti, raffreddori, dermatiti, dolori alle ossa, oppure cibo secco…). Della
+[ditta fornitrice] sono invece noti un [recapito], un [nome] ed un [indirizzo],
+
+▪ Ogni vendita viene effettuata ad un cliente, proprietario dell’animale, indicandone il
+codice fiscale ed indicando il prodotto che acquista (se il cliente acquista più prodotti,
+deve essere necessario memorizzare più vendite). Inoltre deve essere inserita, per
+ogni vendita, l’eventuale numero della ricetta medica.
+
+▪ I medicinali sono contenuti in [cassetti], contenuti a loro volta in [armadietti]. Gli
+armadietti sono identificati da un [codice numerico univoco].
+
+--------------------------------------------------------------------------------------------------------------------
+
+I dipendenti della farmacia, che non sono gli stessi dipendenti che hanno accesso alla parte relativa alla clinica, per rendere più celere la ricerca del farmaco da vendere, devono essere in grado di raggiungere una pagina che possa consentire loro di selezionare un medicinale e
+conoscere l’armadietto ed il cassetto in cui questo è giacente. Questa azione deve essere
+invocata per mezzo di una attività asincrona.
+
+Inoltre, per mezzo di altre attività asincrone, la farmacia deve poter conoscere:
+– L’elenco dei medicinali venduti in una certa data,
+– L’elenco dei medicinali venduti ad ogni cliente indicando in input il codice fiscale

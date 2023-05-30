@@ -1,0 +1,78 @@
+﻿@model IEnumerable<DataLayer.Entities.Pet>
+
+@{
+    ViewData["Title"] = "Index";
+}
+
+<h1>Lista Animali</h1>
+
+<p>
+    <a asp-action="Create" class="btn btn-primary mx-2">Add Pet</a>
+    <a asp-action="Index1" class="btn btn-primary mx-2">Prova</a>
+</p>
+<table class="table">
+    <thead>
+        <tr>
+            <th>
+                @Html.DisplayNameFor(model => model.Id)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.RegisterDate)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.Name)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.Race)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.FurColor)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.Birthdate)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.HasMicrochip)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.MicrochipNumber)
+            </th>
+            <th>Azioni</th>
+        </tr>
+    </thead>
+    <tbody>
+        @foreach (var item in Model)
+        {
+            <tr>
+                <td>
+                    @Html.DisplayFor(modelItem => item.Id)
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.RegisterDate)
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.Name)
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.Race)
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.FurColor)
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.Birthdate)
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.HasMicrochip)
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.MicrochipNumber)
+                </td>
+                <td>
+                    @Html.ActionLink("Accettazione", "Accettazione", "Acceptances", new {  id=item.Id  }, new {@class = "btn btn-warning"}) |
+                    @Html.ActionLink("Elimina", "Delete", new {  id=item.Id  }, new {@class = "btn btn-danger"})
+                </td>
+            </tr>
+        }
+    </tbody>
+</table>

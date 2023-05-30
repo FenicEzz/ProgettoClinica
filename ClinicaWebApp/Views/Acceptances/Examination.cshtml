@@ -1,0 +1,39 @@
+﻿@model ClinicaWebApp.Models.ExaminationViewModel
+
+<h1>Esame</h1>
+
+<hr />
+<div class="row">
+    <div class="col-md-4">
+        <form asp-action="Examination">
+            <div asp-validation-summary="ModelOnly" class="text-danger"></div>
+            <input asp-for="PetId" class="form-control" type="hidden" value="@Model.PetId" />
+            <input asp-for="ExamDate" class="form-control" type="hidden" value="@DateTime.Now" />
+            <div class="form-group">
+                <label asp-for="Disease" class="control-label"></label>
+                <input asp-for="Disease" class="form-control" />
+                <span asp-validation-for="Disease" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="Treatment" class="control-label"></label>
+                <textarea asp-for="Treatment" class="form-control"></textarea>
+                <span asp-validation-for="Treatment" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <input type="submit" value="Create" class="btn btn-success my-3" />
+            </div>
+        </form>
+    </div>
+</div>
+
+<div>
+    <a asp-action="Index" class="btn btn-primary">Back to List</a>
+</div>
+
+
+
+@section Scripts {
+    @{
+        await Html.RenderPartialAsync("_ValidationScriptsPartial");
+    }
+}

@@ -1,0 +1,80 @@
+﻿@model DataLayer.Entities.Pet
+
+@{
+    ViewData["Title"] = "Create";
+}
+
+<h1>Create</h1>
+
+<h4>Pet</h4>
+<hr />
+<div class="row">
+    <div class="col-md-4">
+        <form asp-action="Create">
+            <div asp-validation-summary="ModelOnly" class="text-danger"></div>
+            <div class="form-group">
+                <label asp-for="Name" class="control-label"></label>
+                <input asp-for="Name" class="form-control" />
+                <span asp-validation-for="Name" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="Race" class="control-label"></label>
+                <input asp-for="Race" class="form-control" />
+                <span asp-validation-for="Race" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="FurColor" class="control-label"></label>
+                <input asp-for="FurColor" class="form-control" />
+                <span asp-validation-for="FurColor" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="Birthdate" class="control-label"></label>
+                <input type="date" asp-for="Birthdate" class="form-control" />
+                <span asp-validation-for="Birthdate" class="text-danger"></span>
+            </div>
+            <div class="form-group form-check my-2">
+                <label class="form-check-label">
+                    <input id="input" class="form-check-input" asp-for="HasMicrochip" /> @Html.DisplayNameFor(model => model.HasMicrochip)
+                </label>
+            </div>
+            <div id="primo" class="form-group" style="display:none">
+                <label asp-for="MicrochipNumber" class="control-label"></label>
+                <input asp-for="MicrochipNumber" class="form-control" />
+                <span asp-validation-for="MicrochipNumber" class="text-danger"></span>
+            </div>
+            <div id="secondo" class="form-group" style="display:none">
+                <label asp-for="CustomerFirstname" class="control-label"></label>
+                <input asp-for="CustomerFirstname" class="form-control" />
+                <span asp-validation-for="CustomerFirstname" class="text-danger"></span>
+            </div>
+            <div id="terzo" class="form-group" style="display:none">
+                <label asp-for="CustomerLastname" class="control-label"></label>
+                <input asp-for="CustomerLastname" class="form-control" />
+                <span asp-validation-for="CustomerLastname" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <input type="submit" value="Create" class="btn btn-success my-3" />
+            </div>
+        </form>
+    </div>
+</div>
+
+<div>
+    <a asp-action="Index" class="btn btn-primary">Back to List</a>
+</div>
+
+
+
+@section Scripts {
+    @{await Html.RenderPartialAsync("_ValidationScriptsPartial");}
+
+    <script>
+
+        $('#input').change(function () {
+
+            $('#primo, #secondo, #terzo').toggle();
+
+        });
+        
+    </script>
+}

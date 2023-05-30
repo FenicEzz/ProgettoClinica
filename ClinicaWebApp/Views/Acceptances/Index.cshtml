@@ -1,0 +1,36 @@
+﻿@model IEnumerable<DataLayer.Entities.Acceptance>
+
+@{
+    ViewData["Title"] = "Index";
+}
+
+<h1>Lista Accettazioni</h1>
+
+<table class="table">
+    <thead>
+        <tr>
+            <th>Id Accettazione</th>
+            <th>Id Animale</th>
+            <th>Nome Animale</th>
+            <th>Razza</th>
+            <th>Azioni</th>
+        </tr>
+    </thead>
+    <tbody>
+        @foreach (var item in Model)
+        {
+            <tr>
+                <td>@item.Id</td>
+                <td>@item.Pet.Id</td>
+                <td>@item.Pet.Name</td>
+                <td>@item.Pet.Race</td>
+                <td>
+                    <a class="btn btn-warning" asp-action="Examination" asp-route-id="@item.Pet.Id">Esame</a> |
+                    <a class="btn btn-success" asp-controller="Recoveries" asp-action="Recovery" asp-route-id="@item.Pet.Id">Ricovera</a> |
+                    <a class="btn btn-info" asp-action="Details" asp-route-id="@item.Pet.Id">Details</a> |
+                    <a class="btn btn-danger" asp-action="Delete" asp-route-id="@item.Id">Delete</a>
+                </td>
+            </tr>
+        }
+    </tbody>
+</table>

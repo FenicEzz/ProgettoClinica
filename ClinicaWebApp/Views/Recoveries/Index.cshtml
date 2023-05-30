@@ -1,0 +1,55 @@
+﻿@model IEnumerable<DataLayer.Entities.Recovery>
+
+@{
+    ViewData["Title"] = "Index";
+}
+
+<h1>Lista Ricoveri</h1>
+<hr />
+
+<h2>Numero Ricoveri: @ViewBag.Count</h2>
+
+<table class="table">
+    <thead>
+        <tr>
+            <th>
+                Id Ricovero
+            </th>
+            <th>
+                Data ricovero
+            </th>
+            <th>
+                Nome Animale
+            </th>
+            <th>
+                Razza
+            </th>
+            <th>
+                Azioni
+            </th>
+        </tr>
+    </thead>
+    <tbody>
+        @foreach (var item in Model)
+        {
+            <tr>
+                <td>
+                    @Html.DisplayFor(modelItem => item.Id)
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.RecoveryDate)
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.Pet.Name)
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.Pet.Race)
+                </td>
+                <td>
+                    <a class="btn btn-warning" asp-action="Dettagli" asp-route-id="@item.Id">Dettagli</a> |
+                    <a class="btn btn-danger" asp-action="Dimetti" asp-route-id="@item.Id">Dimetti</a>
+                </td>
+            </tr>
+        }
+    </tbody>
+</table>
