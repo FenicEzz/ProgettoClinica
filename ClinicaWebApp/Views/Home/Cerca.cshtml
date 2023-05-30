@@ -76,17 +76,21 @@
 
                 var chipNum = $("#chip").val();
 
-                for (let i = 0; i < res.length; i++) {
+                for(var x of res){
+                    console.log(x.microchipNumber)
+                }
+
+                for (var x of res) {
 
                     if (res[i].microchipNumber == chipNum) {
 
-                        td[0].innerHTML = res[i].id;
-                        td[1].innerHTML = res[i].registerDate;
-                        td[2].innerHTML = res[i].name;
-                        td[3].innerHTML = res[i].race;
-                        td[4].innerHTML = res[i].furColor;
-                        td[5].innerHTML = res[i].birthdate;
-                        td[6].innerHTML = res[i].hasMicrochip;
+                        td[0].innerHTML = x.id;
+                        td[1].innerHTML = x.registerDate;
+                        td[2].innerHTML = x.name;
+                        td[3].innerHTML = x.race;
+                        td[4].innerHTML = x.furColor;
+                        td[5].innerHTML = x.birthdate;
+                        td[6].innerHTML = x.hasMicrochip;
                     }
                     else {
                         return alert("Non esiste un animale con questo numero di microchip");

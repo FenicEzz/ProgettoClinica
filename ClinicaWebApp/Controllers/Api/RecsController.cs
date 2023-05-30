@@ -5,7 +5,6 @@ using Microsoft.EntityFrameworkCore;
 using NuGet.Protocol;
 using ServicesLayer.Interfaces;
 
-// For more information on enabling Web API for empty projects, visit https://go.microsoft.com/fwlink/?LinkID=397860
 
 namespace ClinicaWebApp.Controllers.Api
 {
