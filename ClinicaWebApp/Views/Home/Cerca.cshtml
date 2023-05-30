@@ -2,10 +2,10 @@
 
 <div class="my-4">
     <label for="ChipNumber">
-        Cerca numero Microchip: <input name="ChipNumber" type="number" id="chip" value="" />
+        Cerca numero Microchip: <input name="ChipNumber" type="number" min="0" id="chip" />
     </label>
 
-    <button class="btn btn-outline-success" onclick="cerca()">Cerca</button>
+    <button type="button" class="btn btn-outline-success mx-2" onclick="cerca()">Cerca</button>
 </div>
 
 
@@ -66,7 +66,7 @@
 
         let td = document.getElementsByTagName("td");
 
-        function cerca() {
+        var cerca = () => {
 
             var xhttp = new XMLHttpRequest();
 
@@ -76,13 +76,13 @@
 
                 var chipNum = $("#chip").val();
 
-                for(var x of res){
+                for (var x of res) {
                     console.log(x.microchipNumber)
                 }
 
                 for (var x of res) {
 
-                    if (res[i].microchipNumber == chipNum) {
+                    if (x.microchipNumber == chipNum) {
 
                         td[0].innerHTML = x.id;
                         td[1].innerHTML = x.registerDate;
@@ -92,9 +92,8 @@
                         td[5].innerHTML = x.birthdate;
                         td[6].innerHTML = x.hasMicrochip;
                     }
-                    else {
-                        return alert("Non esiste un animale con questo numero di microchip");
-                    }
+
+                    return alert("Non esiste un animale con questo numero di microchip");
                 }
             }
 
