@@ -28,7 +28,7 @@ namespace ClinicaWebApp.Controllers
         }
 
 
-        public async Task<IActionResult> Index1()
+        public async Task<IActionResult> Cerca()
         {
             var model = await _petService.GetAll();
 
