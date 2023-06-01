@@ -1,11 +1,14 @@
 ﻿@model IEnumerable<DataLayer.Entities.Pet>
 
+
 <div class="my-4">
+
     <label for="ChipNumber">
         Cerca numero Microchip: <input name="ChipNumber" type="number" min="0" id="chip" />
     </label>
 
-    <button type="button" class="btn btn-outline-success mx-2" onclick="cerca()">Cerca</button>
+    <button type="submit" class="btn btn-outline-success mx-2" onclick="cerca(chipNum)">Cerca</button>
+
 </div>
 
 
@@ -62,44 +65,5 @@
 
 @section Scripts {
 
-    <script>
-
-        let td = document.getElementsByTagName("td");
-
-        var cerca = () => {
-
-            var xhttp = new XMLHttpRequest();
-
-            xhttp.onload = () => {
-
-                var res = JSON.parse(xhttp.responseText)
-
-                var chipNum = $("#chip").val();
-
-                for (var x of res) {
-                    console.log(x.microchipNumber)
-                }
-
-                for (var x of res) {
-
-                    if (x.microchipNumber == chipNum) {
-
-                        td[0].innerHTML = x.id;
-                        td[1].innerHTML = x.registerDate;
-                        td[2].innerHTML = x.name;
-                        td[3].innerHTML = x.race;
-                        td[4].innerHTML = x.furColor;
-                        td[5].innerHTML = x.birthdate;
-                        td[6].innerHTML = x.hasMicrochip;
-                    }
-
-                    return alert("Non esiste un animale con questo numero di microchip");
-                }
-            }
-
-            xhttp.open("get", "https://localhost:7124/api/recs/allpets")
-            xhttp.send();
-        }
-
-    </script>
+    <script src="~/js/cercaAsync.js"></script>
 }
