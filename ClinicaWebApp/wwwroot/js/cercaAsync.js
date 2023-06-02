@@ -10,28 +10,27 @@ let cerca = (data) => {
 
         let res = JSON.parse(xhttp.responseText);
 
-        for (let x of res) {
-            console.log(x.microchipNumber)
-        }
-
-        for (let x of res) {
+        for (x of res) {
 
             if (x.microchipNumber == data) {
 
-                document.getElementsByTagName("table")[0].style.display = "table";
+                $("#chip").css("border", "3px solid green")
                 td[0].innerHTML = x.id;
                 td[1].innerHTML = x.registerDate;
                 td[2].innerHTML = x.name;
                 td[3].innerHTML = x.race;
                 td[4].innerHTML = x.furColor;
                 td[5].innerHTML = x.birthdate;
-                td[6].innerHTML = x.hasMicrochip;
+                td[6].innerHTML = x.microchipNumber;
             }
-
-            return alert("Non esiste un animale con questo numero di microchip");
+            else {
+                $("#chip").css("border", "3px solid red")
+            }
         }
     }
 
+
     xhttp.open("get", "https://localhost:7124/api/recs/allpets")
     xhttp.send();
+
 }

@@ -3,16 +3,15 @@
 
 <div class="my-4">
 
-    <label for="ChipNumber">
-        Cerca numero Microchip: <input name="ChipNumber" type="number" min="0" id="chip" />
-    </label>
 
-    <button type="submit" class="btn btn-outline-success mx-2" onclick="cerca(chipNum)">Cerca</button>
+    <label for="ChipNumber">
+        Cerca numero Microchip:
+        <input class="form-control my-2" name="ChipNumber" type="number" min="0" id="chip" onchange="cerca(this.value)" />
+    </label>
 
 </div>
 
-
-<table class="table" style="display: none">
+<table class="table">
     <thead>
         <tr>
             <th>
@@ -34,7 +33,7 @@
                 @Html.DisplayNameFor(model => model.Birthdate)
             </th>
             <th>
-                @Html.DisplayNameFor(model => model.HasMicrochip)
+                @Html.DisplayNameFor(model => model.MicrochipNumber)
             </th>
         </tr>
     </thead>
