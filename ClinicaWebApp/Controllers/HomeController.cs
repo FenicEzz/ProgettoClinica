@@ -52,17 +52,29 @@ namespace ClinicaWebApp.Controllers
 
         [HttpPost]
         [ValidateAntiForgeryToken]
-        public async Task<IActionResult> Create(Pet pet)
+        public async Task<IActionResult> Create(CreatePetViewModel model)
         {
             if (ModelState.IsValid)
             {
-                pet.RegisterDate = DateTime.Now;
+                var pet = new Pet
+                {
+                    RegisterDate = DateTime.Now,
+                    Name = model.Name,
+                    Race = model.Race,
+                    FurColor = model.FurColor,
+                    Birthdate = model.Birthdate,
+                    HasMicrochip = model.HasMicrochip,
+                    MicrochipNumber = model.MicrochipNumber,
+                    CustomerFirstname = model.CustomerFirstname,
+                    CustomerLastname = model.CustomerLastname,
+                };
+
                 await _petService.AddPet(pet);
 
                 return RedirectToAction(nameof(Index));
             }
 
-            return View(pet);
+            return View(model);
         }
 
 
