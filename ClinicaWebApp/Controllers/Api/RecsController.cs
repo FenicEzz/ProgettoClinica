@@ -36,12 +36,27 @@ namespace ClinicaWebApp.Controllers.Api
             return Ok(recs);
         }
 
+        
         [HttpGet("allpets")]
         public async Task<IActionResult> GetAllPets()
         {
             var pets = await _petService.GetAll();
 
             return Ok(pets);
+        }
+
+
+        [HttpGet("petmicrochip/{microchipNumber}")]
+        public async Task<IActionResult> GetPetByMicrochipNumber(int microchipNumber)
+        {
+            var pet = await _context.Pets.SingleAsync(x => x.MicrochipNumber == microchipNumber);
+
+            if (pet != null)
+            {
+                return Ok(pet);
+            }
+
+            return BadRequest("Non esiste un animale con questo numero");
         }
     }
 }
