@@ -4,16 +4,12 @@ namespace ClinicaWebApp.Models
 {
     public class CreatePetViewModel
     {
-        [Required]
-        public string Name { get; set; }
+        public required string Name { get; set; }
 
-        [Required]
-        public string Race { get; set; }
+        public required string Race { get; set; }
 
-        [Required]
-        public string FurColor { get; set; }
+        public required string FurColor { get; set; }
 
-        [Required]
         public DateTime Birthdate { get; set; }
 
         public bool HasMicrochip { get; set; }

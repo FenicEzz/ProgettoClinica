@@ -84,8 +84,8 @@ namespace ClinicaWebApp.Controllers
 
         public async Task<IActionResult> AddProduct(long id)
         {
-            var provider = _context.Providers.Single(x => x.Id == id);
-            var model = new AddProductViewModel { Id = provider.Id };
+            Provider provider = await _context.Providers.SingleAsync(x => x.Id == id);
+            AddProductViewModel model = new AddProductViewModel() { Id = provider.Id };
 
             return View(model);
         }

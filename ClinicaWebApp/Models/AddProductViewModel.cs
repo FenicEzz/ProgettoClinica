@@ -5,16 +5,12 @@ namespace ClinicaWebApp.Models
 {
     public class AddProductViewModel
     {
-        [Required]
-        public long Id { get; set; }
+        public  long Id { get; set; }
 
-        [Required]
-        public string Name { get; set; }
+        public  string Name { get; set; }
 
-        [Required]
-        public DataLayer.Entities.Type Type { get; set; }
+        public  DataLayer.Entities.MedicineType Type { get; set; }
 
-        [Required]
         public string Description { get; set; } 
     }
 }

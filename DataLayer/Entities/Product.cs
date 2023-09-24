@@ -8,7 +8,7 @@ using System.Threading.Tasks;
 
 namespace DataLayer.Entities
 {
-    public enum Type
+    public enum MedicineType
     {
         Medicine,
         Food
@@ -24,7 +24,7 @@ namespace DataLayer.Entities
         public string Name { get; set; }
 
         [Required]
-        public Type Type { get; set; }
+        public MedicineType Type { get; set; }
 
         [Required]
         [DataType(DataType.MultilineText)]
